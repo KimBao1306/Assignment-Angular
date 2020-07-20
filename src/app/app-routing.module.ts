@@ -1,11 +1,54 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { ContentComponent } from './common/content/content.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { ForgetPasswordComponent } from './user/forget-password/forget-password.component';
+import { ChangePasswordComponent } from './user/change-password/change-password.component';
+import { UpdateInfoComponent } from './user/update-info/update-info.component';
+import { DiscussComponent } from './common/discuss/discuss.component';
+import { FeedbackComponent } from './common/feedback/feedback.component';
+import { ContactComponent } from './common/contact/contact.component';
 
-
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', component: ContentComponent },
+  {
+    path: 'auth/login',
+    component: LoginComponent,
+  },
+  {
+    path: 'auth/register',
+    component: RegisterComponent,
+  },
+  {
+    path: 'auth/forgot-pass',
+    component: ForgetPasswordComponent,
+  },
+  {
+    path: 'auth/change-pass',
+    component: ChangePasswordComponent,
+  },
+  {
+    path: 'auth/update-info',
+    component: UpdateInfoComponent,
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+  },
+  {
+    path: 'feedback',
+    component: FeedbackComponent,
+  },
+  {
+    path: 'discuss',
+    component: DiscussComponent,
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

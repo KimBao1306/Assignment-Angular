@@ -1,0 +1,95 @@
+.navbar {
+  background: #1997d4;
+}
+
+/* remove navbar button stying */
+.navbar-toggler {
+  background: none;
+  border: none;
+  /* remove the blue outline when active or focused */
+  &:active,
+  &:focus {
+    outline: 0;
+  }
+
+  /* basic styles for each icon bar */
+  .icon-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 1px;
+    margin: 4px 0 4px 0;
+    transition: all 0.2s;
+
+    /* custom .navbar-dark .icon-bar background */
+    .navbar-dark & {
+      background: #fff;
+    }
+
+    /* .navbar open top .icon-bar rotated down 45° */
+    &:nth-of-type(1) {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+
+    /* .navbar open middle .icon-bar invisible */
+    &:nth-of-type(2) {
+      opacity: 0;
+    }
+
+    /* .navbar open bottom .icon-bar rotated up 45° */
+    &:nth-of-type(3) {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
+  }
+
+  /* styles for when .navbar is closed */
+  &.collapsed {
+    .icon-bar {
+      /* .navbar closed top .icon-bar no rotation - straight */
+      &:nth-of-type(1) {
+        transform: rotate(0);
+      }
+
+      /* .navbar open middle .icon-bar visible */
+      &:nth-of-type(2) {
+        opacity: 1;
+      }
+
+      /* .navbar open bottom .icon-bar no rotation - straight */
+      &:nth-of-type(3) {
+        transform: rotate(0);
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  #collapsibleNavId {
+    position: fixed;
+    top: 56px;
+    left: -100%;
+
+    color: #0080af;
+    width: 50vw;
+    // height: 80%;
+
+    box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.5);
+    background: #fff;
+    transition: all 0.2s ease-in-out;
+    z-index: 2;
+    &.show {
+      left: 0;
+
+      & > .navbar-nav .nav-item .nav-link {
+        color: #0080af;
+        padding: 1rem;
+
+        &:hover {
+          background: #daedfc;
+        }
+      }
+    }
+  }
+}
