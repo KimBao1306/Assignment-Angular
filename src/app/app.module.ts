@@ -14,6 +14,7 @@ import { ChangePasswordComponent } from './user/change-password/change-password.
 import { ContactComponent } from './common/contact/contact.component';
 import { FeedbackComponent } from './common/feedback/feedback.component';
 import { DiscussComponent } from './common/discuss/discuss.component';
+import { FooterComponent } from './common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DiscussComponent } from './common/discuss/discuss.component';
     ContactComponent,
     FeedbackComponent,
     DiscussComponent,
+    FooterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

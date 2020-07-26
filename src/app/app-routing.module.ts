@@ -39,11 +39,11 @@ const routes: Routes = [
   },
   {
     path: 'feedback',
-    component: FeedbackComponent,
+    component: ContactComponent,
   },
   {
     path: 'discuss',
-    component: DiscussComponent,
+    component: ContactComponent,
   },
 ];
 
