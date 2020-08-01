@@ -1,0 +1,12 @@
+.subject {
+  &__heading {
+  }
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+  &__item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #000;
+  }
+}

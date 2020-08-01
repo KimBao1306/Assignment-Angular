@@ -11,6 +11,8 @@
             id="usn"
             class="form-control"
             placeholder="Hãy nhập tên đăng nhập"
+            [(ngModel)]="userArr.usn"
+            [ngModelOptions]="{ standalone: true }"
           />
         </div>
         <div class="form-group">
@@ -21,10 +23,14 @@
             id="psw"
             class="form-control"
             placeholder="Hãy nhập mật khẩu"
+            [(ngModel)]="userArr.psw"
+            [ngModelOptions]="{ standalone: true }"
           />
         </div>
         <div class="form-group">
-          <button class="btn btn-primary" type="button">Đăng nhập</button>
+          <button class="btn btn-primary" type="button" (click)="login()">
+            Đăng nhập
+          </button>
         </div>
       </form>
     </div>

@@ -1,10 +1,34 @@
-<div class="container-fluid">
+<div class="container">
   <div class="row">
-    <div class="col-3">
-      <app-aside></app-aside>
-    </div>
-    <div class="col-9">
-      Đây là phần các câu hỏi trắc nghiệm show ra
+    <div class="col-sm-6 col-md-3 col-lg-3" *ngFor="let s of subjects">
+      <div
+        style="
+          border: 1px solid #000;
+          border-radius: 5px;
+          padding: 10px;
+          margin: 0 16px 20px 0;
+          display: flex;
+          align-items: stretch;
+          flex-direction: column;
+        "
+      >
+        <img
+          src="assets/images/logos/{{ s.Logo }}"
+          alt="{{ s.Name }}"
+          style="height: 230px; width: 100%; margin-bottom: 1rem;"
+        />
+        <h5
+          style="
+            margin-bottom: 1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          "
+        >
+          {{ s.Name }}
+        </h5>
+        <a href="/quiz/{{ s.Id }}" class="btn btn-primary">Làm trắc nghiệm</a>
+      </div>
     </div>
   </div>
 </div>

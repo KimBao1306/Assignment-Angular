@@ -9,9 +9,11 @@ import { UpdateInfoComponent } from './user/update-info/update-info.component';
 import { DiscussComponent } from './common/discuss/discuss.component';
 import { FeedbackComponent } from './common/feedback/feedback.component';
 import { ContactComponent } from './common/contact/contact.component';
+import { QuizComponent } from './common/quiz/quiz.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'quiz/:idQuiz', component: QuizComponent },
   { path: 'home', component: ContentComponent },
   {
     path: 'auth/login',

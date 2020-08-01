@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CountdownModule } from 'ngx-countdown';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +18,7 @@ import { ContactComponent } from './common/contact/contact.component';
 import { FeedbackComponent } from './common/feedback/feedback.component';
 import { DiscussComponent } from './common/discuss/discuss.component';
 import { FooterComponent } from './common/footer/footer.component';
+import { QuizComponent } from './common/quiz/quiz.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +35,16 @@ import { FooterComponent } from './common/footer/footer.component';
     FeedbackComponent,
     DiscussComponent,
     FooterComponent,
+    QuizComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CountdownModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
