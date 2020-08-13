@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CountdownModule } from 'ngx-countdown';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +45,7 @@ import { QuizComponent } from './common/quiz/quiz.component';
     FormsModule,
     ReactiveFormsModule,
     CountdownModule,
+    NgxPaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

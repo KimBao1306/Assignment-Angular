@@ -11,15 +11,15 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class QuizComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute, private http: HttpClient) {}
 
-  subjects: any;
   id: string;
   quizCurrent: any;
   quizs: any[];
   index = 0;
+  quizsPerPage = 1; //số quiz hiển thị mỗi trang
   total = 0;
   quizTrue = 0;
   quizFalse = 0;
-  form = new FormGroup({
+  formAnswers = new FormGroup({
     answers: new FormControl('', Validators.required),
   });
 
@@ -28,6 +28,7 @@ export class QuizComponent implements OnInit {
       window.location.href = '/auth/login';
       return;
     }
+
     this.activeRoute.paramMap.subscribe((params) => {
       this.id = params.get('idQuiz');
 
@@ -36,15 +37,7 @@ export class QuizComponent implements OnInit {
         this.quizs = data;
         this.quizCurrent = this.quizs[this.index];
       });
-
-      this.getSubjects().subscribe((data) => {
-        this.subjects = data.filter((sub) => sub.Id === this.id);
-      });
     });
-  }
-
-  getSubjects() {
-    return this.http.get<any[]>(`../../../assets/db/Subjects.js`);
   }
 
   getQuizBySubjectId(id) {
@@ -52,10 +45,7 @@ export class QuizComponent implements OnInit {
   }
 
   Next() {
-    console.log(this.form.value.answers);
-    console.log(this.quizCurrent.AnswerId);
-
-    if (this.form.value.answers === this.quizCurrent.AnswerId) {
+    if (+this.formAnswers.value.answers === +this.quizCurrent.AnswerId) {
       if (this.total > this.quizTrue) {
         alert(this.quizFalse + 'Finsish');
       } else {
@@ -65,7 +55,6 @@ export class QuizComponent implements OnInit {
     } else {
       this.quizFalse++;
     }
-
     this.index++;
     this.quizCurrent = this.quizs[this.index];
   }
